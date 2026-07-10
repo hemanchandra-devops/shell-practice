@@ -6,3 +6,6 @@ echo "Script name is: $0"
 echo "User of the script: $USER"
 echo "Present Dir of the script: $PWD"
 echo "User Dir of the script: $HOME"
+echo "PID of the script: $$"
+sleep 10&
+echo "PID of the last command: $!"

@@ -26,7 +26,7 @@ if [ $? -ne 0 ];then
     dnf install mysql -y
     VALIDATE $? "MySql"
 else
-    echo "Already Installed Mysql"
+    echo -e "$Y Already Installed Mysql $N"
 fi
 
 dnf list installed nginx
@@ -34,7 +34,7 @@ if [ $? -ne 0 ];then
     dnf install nginx -y
     VALIDATE $? "Nginx"
 else
-    echo "Already Installed Nginx"
+    echo -e "$Y Already Installed Nginx $N"
 fi
 
 dnf list installed redis
@@ -42,5 +42,5 @@ if [ $? -ne 0 ];then
     dnf install redis -y
     VALIDATE $? "Redis"
 else
-    echo "Already Installed Redis"
+    echo -e "$Y Already Installed Redis $N"
 fi

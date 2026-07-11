@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-if [ $USERID -ne 0];then
+if [ $USERID -ne 0 ];then
     echo "Please run this script with Root Access!"
     exit 1
 fi

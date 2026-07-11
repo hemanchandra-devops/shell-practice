@@ -6,10 +6,10 @@ Y="\e[33m"
 N="\e[0m"
 
 LOGS_FOLDER="/var/log/shell-script"
+mkdir -p $LOGS_FOLDER
 SCRIPIT_NAME=$(echo $0 | cut -d "." -f1)
 LOGS_FILE="$LOGS_FOLDER/$SCRIPIT_NAME.log"
 
-mkdir -p LOGS_FOLDER
 echo "Script started executed at : $(date)" | tee -a $LOGS_FILE
 
 USERID=$(id -u)

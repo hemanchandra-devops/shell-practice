@@ -51,14 +51,14 @@ fi
 
 LOGS_FILES=$(find $SOUR_DIR -name "*.log" -type f -mtime +14)
 
-if [ -n $LOGS_FILES ];then
+if [ ! -z "$LOGS_FILES" ];then
     echo "Log files found: $LOGS_FILES"
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE="$DEST_DIR/app-logs:$TIMESTAMP.zip"
     echo "Zip file is: $ZIP_FILE"
     find $SOUR_DIR -name "*.log" -type f -mtime +14 | zip -@ -j $ZIP_FILE
 
-    if [ ! -z $ZIP_FILE ];then
+    if [ -f "$ZIP_FILE" ];then
         echo "Archive created: $ZIP_FILE"
         while IFS= read -r filepath
         do

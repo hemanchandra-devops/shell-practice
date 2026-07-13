@@ -58,8 +58,8 @@ if [ -n $LOGS_FILES ];then
     echo "Zip file is: $ZIP_FILE"
     find $SOUR_DIR -name "*.log" -type f -mtime +14 | zip -@ -j $ZIP_FILE
 
-    if [ -f $ZIP_FILE ];then
-         echo "Archive created: $ZIP_FILE"
+    if [ ! -z $ZIP_FILE ];then
+        echo "Archive created: $ZIP_FILE"
         while IFS= read -r filepath
         do
             rm -rf $filepath
@@ -67,8 +67,10 @@ if [ -n $LOGS_FILES ];then
         done <<<$LOGS_FILES
     else
         echo "Zip file not found"
+        exit 1
     fi
 
 else
     echo "No Log files to archieve"
+    exit 1
 fi

@@ -64,7 +64,7 @@ if [ -f $LOGS_FILES ];then
         do
             rm -rf $filepath
             echo "Deleted: $filepath"
-        done >>>$LOGS_FILES
+        done <<<$LOGS_FILES
     else
         echo "Zip file not found"
     fi
